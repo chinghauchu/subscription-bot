@@ -25,6 +25,8 @@ const SLIDES = [
   },
 ];
 
+const MARKS = ['◎', '✦', '🧹', '☁️'];
+
 export default function OnboardingScreen() {
   const theme = useTheme();
   const { patchSettings } = useApp();
@@ -40,7 +42,18 @@ export default function OnboardingScreen() {
   return (
     <Screen>
       <SafeAreaView style={{ flex: 1, padding: 24, justifyContent: 'space-between' }}>
-        <View style={{ gap: 8 }}>
+        <View style={{ gap: 18, flex: 1, justifyContent: 'center' }}>
+          <View
+            style={{
+              width: 96,
+              height: 96,
+              borderRadius: 32,
+              backgroundColor: theme.accentSoft,
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+            <AppText type="hero">{MARKS[index]}</AppText>
+          </View>
           <AppText type="caption" color={theme.accent}>
             扣款清
           </AppText>

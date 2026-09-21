@@ -99,9 +99,7 @@ const config: ExpoConfig = {
     reactCompiler: true,
   },
   extra: {
-    eas: {
-      projectId: process.env.EAS_PROJECT_ID ?? undefined,
-    },
+    ...(process.env.EAS_PROJECT_ID ? { eas: { projectId: process.env.EAS_PROJECT_ID } } : {}),
     iCloudContainer: ICloudContainer,
     iapRemoveAdsProductId: process.env.EXPO_PUBLIC_IAP_REMOVE_ADS_ID ?? '',
     admobIosAppId: admobIosAppId ?? '',

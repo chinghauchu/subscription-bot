@@ -18,7 +18,9 @@ import {
 export function Screen({ children, style }: ViewProps) {
   const theme = useTheme();
   return (
-    <View style={[{ flex: 1, backgroundColor: theme.background }, style]}>{children}</View>
+    <View style={[{ flex: 1, backgroundColor: theme.background, alignItems: 'center' }, style]}>
+      <View style={{ flex: 1, width: '100%', maxWidth: 560 }}>{children}</View>
+    </View>
   );
 }
 

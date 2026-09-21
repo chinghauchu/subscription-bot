@@ -17,11 +17,9 @@ export function SyncStatusBanner({ compact = false }: { compact?: boolean }) {
         </AppText>
         {syncing ? <ActivityIndicator color={tone} /> : null}
       </View>
-      {compact ? null : (
-        <AppText type="caption" color={theme.textSecondary}>
-          {iCloud.message}
-        </AppText>
-      )}
+      <AppText type="caption" color={theme.textSecondary} numberOfLines={compact ? 2 : undefined}>
+        {iCloud.message}
+      </AppText>
       {snapshot.settings.lastIcloudSyncAt ? (
         <AppText type="caption" color={theme.textSecondary}>
           上次成功同步：{snapshot.settings.lastIcloudSyncAt.replace('T', ' ').slice(0, 19)}
