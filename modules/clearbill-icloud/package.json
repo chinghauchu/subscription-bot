@@ -1,0 +1,9 @@
+{
+  "name": "clearbill-icloud",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.ts",
+  "types": "index.ts",
+  "description": "Mandatory iCloud Key-Value Store + Documents sync for ClearBill / 扣款清",
+  "keywords": ["expo", "icloud", "clearbill"]
+}
