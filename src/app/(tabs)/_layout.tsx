@@ -16,10 +16,17 @@ export default function TabsLayout() {
         tabBarStyle: {
           backgroundColor: theme.tabBar,
           borderTopColor: theme.border,
+          height: Platform.OS === 'web' ? 68 : undefined,
+          paddingTop: 6,
+        },
+        tabBarItemStyle: {
+          flexDirection: 'column',
+          justifyContent: 'center',
         },
         tabBarLabelStyle: {
           fontSize: 11,
           fontWeight: '600',
+          marginTop: 2,
         },
         sceneStyle: { backgroundColor: theme.background },
       }}>
