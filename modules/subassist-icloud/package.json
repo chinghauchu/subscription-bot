@@ -1,0 +1,9 @@
+{
+  "name": "subassist-icloud",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.ts",
+  "types": "index.ts",
+  "description": "Mandatory iCloud Key-Value Store + Documents sync for 訂閱助手 / sub-assist",
+  "keywords": ["expo", "icloud", "sub-assist", "subassist"]
+}

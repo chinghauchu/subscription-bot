@@ -1,7 +1,7 @@
 const { withEntitlementsPlist, withInfoPlist } = require('expo/config-plugins');
 
-const CONTAINER = 'iCloud.app.clearbill.tw';
-const BUNDLE_ID = 'app.clearbill.tw';
+const CONTAINER = 'iCloud.app.subassist.tw';
+const BUNDLE_ID = 'app.subassist.tw';
 
 /**
  * Adds iCloud Documents + Key-Value Store entitlements and Info.plist
@@ -9,7 +9,7 @@ const BUNDLE_ID = 'app.clearbill.tw';
  *
  * @param {import('expo/config-plugins').ExportedConfig} config
  */
-function withClearbillIcloud(config) {
+function withSubassistIcloud(config) {
   config = withEntitlementsPlist(config, (mod) => {
     mod.modResults['com.apple.developer.icloud-container-identifiers'] = [CONTAINER];
     mod.modResults['com.apple.developer.icloud-services'] = ['CloudDocuments'];
@@ -23,7 +23,7 @@ function withClearbillIcloud(config) {
     mod.modResults.NSUbiquitousContainers = {
       [CONTAINER]: {
         NSUbiquitousContainerIsDocumentScopePublic: true,
-        NSUbiquitousContainerName: '扣款清',
+        NSUbiquitousContainerName: '訂閱助手',
         NSUbiquitousContainerSupportedFolderLevels: 'Any',
       },
     };
@@ -32,7 +32,7 @@ function withClearbillIcloud(config) {
     }
     if (!mod.modResults.NSFaceIDUsageDescription) {
       mod.modResults.NSFaceIDUsageDescription =
-        '用於鎖定扣款清，避免他人查看你的訂閱與支出。';
+        '用於鎖定訂閱助手，避免他人查看你的訂閱與支出。';
     }
     return mod;
   });
@@ -40,4 +40,4 @@ function withClearbillIcloud(config) {
   return config;
 }
 
-module.exports = withClearbillIcloud;
+module.exports = withSubassistIcloud;

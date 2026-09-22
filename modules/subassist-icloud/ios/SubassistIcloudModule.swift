@@ -1,10 +1,10 @@
 import ExpoModulesCore
 import Foundation
 
-private let containerId = "iCloud.app.clearbill.tw"
-private let documentFileName = "clearbill-snapshot.json"
-private let kvSnapshotKey = "clearbill.snapshot.v1"
-private let kvUpdatedAtKey = "clearbill.updatedAt.v1"
+private let containerId = "iCloud.app.subassist.tw"
+private let documentFileName = "subassist-snapshot.json"
+private let kvSnapshotKey = "subassist.snapshot.v1"
+private let kvUpdatedAtKey = "subassist.updatedAt.v1"
 
 internal final class ICloudUnavailableException: Exception {
   override var reason: String {
@@ -18,12 +18,12 @@ internal final class ICloudWriteException: GenericException<String> {
   }
 }
 
-public class ClearbillIcloudModule: Module {
+public class SubassistIcloudModule: Module {
   private var identityObserver: NSObjectProtocol?
   private var kvObserver: NSObjectProtocol?
 
   public func definition() -> ModuleDefinition {
-    Name("ClearbillIcloud")
+    Name("SubassistIcloud")
 
     Events("onAccountChanged", "onStoreChanged")
 

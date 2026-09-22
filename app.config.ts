@@ -1,18 +1,24 @@
 import type { ExpoConfig } from 'expo/config';
 
-const ICloudContainer = 'iCloud.app.clearbill.tw';
-const BundleId = 'app.clearbill.tw';
+const ICloudContainer = 'iCloud.app.subassist.tw';
+const BundleId = 'app.subassist.tw';
+const PrivacyUrl =
+  process.env.EXPO_PUBLIC_PRIVACY_URL?.trim() ||
+  'https://chinghauchu.github.io/subscription-bot/privacy.html';
+const TermsUrl =
+  process.env.EXPO_PUBLIC_TERMS_URL?.trim() ||
+  'https://chinghauchu.github.io/subscription-bot/terms.html';
 
 const admobIosAppId = process.env.EXPO_PUBLIC_ADMOB_IOS_APP_ID?.trim();
 const admobAndroidAppId = process.env.EXPO_PUBLIC_ADMOB_ANDROID_APP_ID?.trim();
 
 const config: ExpoConfig = {
-  name: '扣款清',
-  slug: 'clearbill',
+  name: '訂閱助手',
+  slug: 'sub-assist',
   version: '1.0.0',
   orientation: 'portrait',
   icon: './assets/images/icon.png',
-  scheme: 'clearbill',
+  scheme: 'sub-assist',
   userInterfaceStyle: 'automatic',
   primaryColor: '#0F6E62',
   ios: {
@@ -21,14 +27,14 @@ const config: ExpoConfig = {
     usesIcloudStorage: true,
     icon: './assets/expo.icon',
     infoPlist: {
-      CFBundleDisplayName: '扣款清',
+      CFBundleDisplayName: '訂閱助手',
       CFBundleAllowMixedLocalizations: true,
-      NSFaceIDUsageDescription: '用於鎖定扣款清，避免他人查看你的訂閱與支出。',
+      NSFaceIDUsageDescription: '用於鎖定訂閱助手，避免他人查看你的訂閱與支出。',
       ITSAppUsesNonExemptEncryption: false,
       NSUbiquitousContainers: {
         [ICloudContainer]: {
           NSUbiquitousContainerIsDocumentScopePublic: true,
-          NSUbiquitousContainerName: '扣款清',
+          NSUbiquitousContainerName: '訂閱助手',
           NSUbiquitousContainerSupportedFolderLevels: 'Any',
         },
       },
@@ -77,7 +83,7 @@ const config: ExpoConfig = {
     [
       'expo-local-authentication',
       {
-        faceIDPermission: '用於鎖定扣款清，避免他人查看你的訂閱與支出。',
+        faceIDPermission: '用於鎖定訂閱助手，避免他人查看你的訂閱與支出。',
       },
     ],
     [
@@ -92,7 +98,7 @@ const config: ExpoConfig = {
         },
       },
     ],
-    './modules/clearbill-icloud/plugin.js',
+    './modules/subassist-icloud/plugin.js',
   ],
   experiments: {
     typedRoutes: true,
@@ -101,6 +107,8 @@ const config: ExpoConfig = {
   extra: {
     ...(process.env.EAS_PROJECT_ID ? { eas: { projectId: process.env.EAS_PROJECT_ID } } : {}),
     iCloudContainer: ICloudContainer,
+    privacyUrl: PrivacyUrl,
+    termsUrl: TermsUrl,
     iapRemoveAdsProductId: process.env.EXPO_PUBLIC_IAP_REMOVE_ADS_ID ?? '',
     admobIosAppId: admobIosAppId ?? '',
     admobAndroidAppId: admobAndroidAppId ?? '',

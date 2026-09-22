@@ -1,4 +1,4 @@
 {
-  "CFBundleDisplayName": "ClearBill",
-  "NSFaceIDUsageDescription": "ClearBill uses Face ID to lock the app so others cannot see your subscriptions."
+  "CFBundleDisplayName": "訂閱助手",
+  "NSFaceIDUsageDescription": "訂閱助手 (sub-assist) uses Face ID to lock the app so others cannot see your subscriptions."
 }

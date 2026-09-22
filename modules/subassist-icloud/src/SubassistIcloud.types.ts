@@ -7,7 +7,7 @@ export type ICloudNativeStatus = {
   kvUpdatedAt: string;
 };
 
-export type ClearbillIcloudModuleView = {
+export type SubassistIcloudModuleView = {
   getStatus(): ICloudNativeStatus;
   synchronize(): Promise<boolean>;
   readSnapshot(): Promise<string | null>;

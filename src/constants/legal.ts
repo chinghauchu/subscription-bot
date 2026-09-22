@@ -1,20 +1,40 @@
-export const PRIVACY_ZH = `扣款清隱私權政策
+import Constants from 'expo-constants';
 
-最後更新：2026-09-20
+const DEFAULT_PRIVACY_URL = 'https://chinghauchu.github.io/subscription-bot/privacy.html';
+const DEFAULT_TERMS_URL = 'https://chinghauchu.github.io/subscription-bot/terms.html';
 
-扣款清（ClearBill，bundle：app.clearbill.tw）是手動記錄訂閱與定期扣款的工具。我們把資料留在你的裝置與你的 iCloud 帳號，不讀銀行、Gmail 或簡訊。
+type LegalExtra = {
+  privacyUrl?: string;
+  termsUrl?: string;
+};
+
+function extra(): LegalExtra {
+  return (Constants.expoConfig?.extra ?? {}) as LegalExtra;
+}
+
+/** Public privacy policy. Override with EXPO_PUBLIC_PRIVACY_URL. */
+export const PRIVACY_URL = extra().privacyUrl?.trim() || DEFAULT_PRIVACY_URL;
+
+/** Public terms of use. Override with EXPO_PUBLIC_TERMS_URL. */
+export const TERMS_URL = extra().termsUrl?.trim() || DEFAULT_TERMS_URL;
+
+export const PRIVACY_ZH = `訂閱助手隱私權政策
+
+最後更新：2026-09-22
+
+訂閱助手（sub-assist，bundle：app.subassist.tw）是手動記錄訂閱與定期扣款的工具，並提供離職、搬家、換機、賣機等生活清點清單。我們把資料留在你的裝置與你的 iCloud 帳號，不讀銀行、Gmail 或簡訊。
 
 一、我們收集什麼
 • 你在 App 內手動輸入的訂閱名稱、金額、週期、下次扣款日與備註。
 • 大掃除清單的勾選進度與你新增的自訂項目。
 • 設定：主題、是否去除廣告、是否開啟 Face ID 鎖。
-• 若你開啟 iCloud 同步：上述資料會寫入你的 iCloud 容器 iCloud.app.clearbill.tw（Key-Value 與文件）。Apple 依其 iCloud 條款處理該備份。
-• 若顯示廣告：廣告 SDK（例如 AdMob）可能依 Google 政策收集裝置廣告識別碼等資料。未設定廣告金鑰時，App 只顯示本機佔位橫幅，不載入廣告 SDK。
-• 購買「去除廣告」時，交易由 Apple 處理，我們不取得你的付款卡號。
+• 若你使用 iCloud 同步：上述資料會寫入你的 iCloud 容器 iCloud.app.subassist.tw（Key-Value 與文件）。Apple 依其 iCloud 條款處理該備份。
+• 若顯示廣告：廣告 SDK（例如 AdMob）可能依 Google 政策收集裝置廣告識別碼等資料。未設定廣告金鑰時，App 只顯示本機佔位橫幅，不載入廣告 SDK，也不會因此閃退。
+• 購買「去除廣告」（NT$60 一次買斷）時，交易由 Apple 處理，我們不取得你的付款卡號。
 
 二、我們不收集／不讀取
 • 銀行帳戶、信用卡明細、Gmail、簡訊、其它 App 的內容。
-• 不會要求你把第三方帳號授權給扣款清來「自動取消」。
+• 不會要求你把第三方帳號授權給訂閱助手，也不會自動取消任何訂閱。
 
 三、資料存在哪裡
 • 預設寫入本機（AsyncStorage）。
@@ -25,28 +45,32 @@ export const PRIVACY_ZH = `扣款清隱私權政策
 • Face ID／生物辨識：僅用於鎖定本 App，生物特徵不會離開裝置。
 • 網路：開啟取消連結、廣告（若已設定）、與 iCloud 同步。
 
-五、聯絡
-開發者可透過 GitHub 專案 chinghauchu/subscription-bot 或 App 內「我的」所列方式聯繫。本政策會隨 1.0 上架資訊更新公開網址。`;
+五、公開網址
+• 隱私權政策：${PRIVACY_URL}
+• 使用條款：${TERMS_URL}
 
-export const TERMS_ZH = `扣款清使用條款
+六、聯絡
+開發者可透過 GitHub 專案 chinghauchu/subscription-bot 聯繫。`;
 
-最後更新：2026-09-20
+export const TERMS_ZH = `訂閱助手使用條款
 
-使用扣款清（ClearBill）即表示你同意以下條款。
+最後更新：2026-09-22
+
+使用訂閱助手（sub-assist）即表示你同意以下條款。
 
 一、服務內容
-扣款清協助你手動記錄訂閱與定期扣款，並提供離職、搬家、換機、賣機等清點清單。清單中的連結僅供你自行前往各服務完成取消或變更。
+訂閱助手協助你手動記錄訂閱與定期扣款，並提供離職、搬家、換機、賣機等清點清單。清單中的連結僅供你自行前往各服務完成取消或變更。
 
 二、重要限制
-• 本 App 不會連接銀行、不會讀取信箱或簡訊、不會登入第三方、也不會自動取消任何訂閱。
+• 本 App 不會連接銀行、不會讀取 Gmail 或簡訊、不會登入第三方、也不會自動取消任何訂閱。
 • 預設價格為示意，非即時牌價。請以業者實際帳單為準。
 • 取消路徑與網址可能變更；若連結失效，請到該服務 App 或官網搜尋「取消訂閱」。
 
 三、帳號與同步
-核心功能不需另建扣款清帳號。iCloud 同步使用你裝置上的 Apple ID。未登入 iCloud、使用 Expo Go 或非 iOS 時，資料只存在本機。
+核心功能不需另建訂閱助手帳號。iCloud 同步使用你裝置上的 Apple ID，資料寫入容器 iCloud.app.subassist.tw。未登入 iCloud、使用 Expo Go 或非 iOS 時，資料只存在本機。
 
 四、費用
-核心功能免費。總覽與訂閱列表底部可能顯示橫幅廣告。你可以一次買斷「去除廣告」（NT$60，非消耗性 IAP）關閉廣告並解鎖匯出與 Face ID 鎖。購買與退款依 Apple 媒體服務條款。
+核心功能免費。總覽與訂閱列表底部可能顯示橫幅廣告。你可以一次買斷「去除廣告」（NT$60，非消耗性 IAP）關閉廣告並解鎖匯出與 Face ID 鎖。未設定商店產品編號時，App 不會連線購買、也不會閃退。購買與退款依 Apple 媒體服務條款。
 
 五、免責
 本 App 提供整理與提醒工具，不構成財務、法律或保險建議。因你未自行完成取消、或業者仍扣款所生費用，開發者不負擔。
@@ -55,4 +79,8 @@ export const TERMS_ZH = `扣款清使用條款
 你可以隨時刪除 App 與匯出資料。我們可能在法令要求或服務終止時停止提供更新。
 
 七、準據法
-以中華民國台灣法令為準據法，爭議以台灣法院為管轄。`;
+以中華民國台灣法令為準據法，爭議以台灣法院為管轄。
+
+八、公開網址
+• 隱私權政策：${PRIVACY_URL}
+• 使用條款：${TERMS_URL}`;
