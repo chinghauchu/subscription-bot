@@ -21,7 +21,7 @@ const SLIDES = [
   },
   {
     title: 'iCloud 是正式版的同步方式',
-    body: '扣款清會把資料寫入本機，並在已登入的 iPhone／iPad 同步到 iCloud.app.clearbill.tw。Expo Go 或未登入 Apple ID 時會用繁中說明，資料仍留在本機，不會閃退。',
+    body: '訂閱助手會把資料寫入本機，並在已登入的 iPhone／iPad 同步到 iCloud.app.subassist.tw。Expo Go 或未登入 Apple ID 時會用繁中說明，資料仍留在本機，不會閃退。',
   },
 ];
 
@@ -55,7 +55,7 @@ export default function OnboardingScreen() {
             <AppText type="hero">{MARKS[index]}</AppText>
           </View>
           <AppText type="caption" color={theme.accent}>
-            扣款清
+            訂閱助手
           </AppText>
           <AppText type="hero">{slide.title}</AppText>
           <AppText type="body" color={theme.textSecondary}>

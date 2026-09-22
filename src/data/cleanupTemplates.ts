@@ -35,7 +35,7 @@ export const CLEANUP_TEMPLATES: CleanupTemplate[] = [
     emoji: '🧳',
     accent: '#0F6E62',
     intro:
-      '離職前後，把公司信箱、員工優惠訂閱、通勤與通訊相關的自動扣款清一遍，避免錢還在扣、權限卻沒了。逐項打勾即可；取消請到各服務官網或 App 完成。本 App 不會代為登入或自動取消。',
+      '離職前後，把公司信箱、員工優惠訂閱、通勤與通訊相關的自動扣款逐項檢查一遍，避免錢還在扣、權限卻沒了。逐項打勾即可；取消請到各服務官網或 App 完成。本 App 不會代為登入或自動取消。',
     groups: [
       {
         id: 'subs',
@@ -117,7 +117,7 @@ export const CLEANUP_TEMPLATES: CleanupTemplate[] = [
           item('quit-14', '取消員工停車場、共享汽機車企業方案', 'iRent、GoShare 企業等。'),
           item('quit-15', '停用辦公室周邊外送企業碼／儲值', 'Uber Eats、foodpanda 企業。'),
           item('quit-16', '更新履歷與求職平台通知', '避免舊公司信箱收驗證信。'),
-          item('quit-17', '在扣款清把已取消項目標記完成', '本月總覽再對一次卡況。'),
+          item('quit-17', '在訂閱助手把已取消項目標記完成', '本月總覽再對一次卡況。'),
           item('quit-18', '其它公司專屬訂閱或扣款', '可在下方新增自訂項目。'),
         ],
       },
@@ -189,7 +189,7 @@ export const CLEANUP_TEMPLATES: CleanupTemplate[] = [
           item('move-14', '健保／戶籍相關通訊地址', '若已遷籍，依戶政流程；非 App 內完成。'),
           item('move-15', '外送、電商常用地址改為新居', '刪除舊地址避免送錯。'),
           item('move-16', '停車場月租、共享機車常用站點改設定'),
-          item('move-17', '在扣款清核對本月公用事業與電信金額', '可在下方新增自訂項目。'),
+          item('move-17', '在訂閱助手核對本月公用事業與電信金額', '可在下方新增自訂項目。'),
         ],
       },
     ],
@@ -258,7 +258,7 @@ export const CLEANUP_TEMPLATES: CleanupTemplate[] = [
         title: '雜項',
         items: [
           item('phone-14', '健康／運動手環、車用藍牙重新配對'),
-          item('phone-15', '在扣款清用新機開啟並核對訂閱列表', '若有匯出備份，先匯入。'),
+          item('phone-15', '在訂閱助手用新機開啟並核對訂閱列表', '若有匯出備份，先匯入。'),
           item('phone-16', '其它只裝在舊機的付費 App／會員', '可在下方新增自訂項目。'),
         ],
       },
@@ -336,7 +336,7 @@ export const CLEANUP_TEMPLATES: CleanupTemplate[] = [
         items: [
           item('sell-16', '刊登前拍照序號／外觀', '保留清除完成的開機畫面照片作證明。'),
           item('sell-17', '僅透過可信回收商／二手平台', '勿提供 Apple ID 密碼給買家。'),
-          item('sell-18', '在扣款清將與舊機相關的提醒勾完', '可在下方新增自訂項目。'),
+          item('sell-18', '在訂閱助手將與舊機相關的提醒勾完', '可在下方新增自訂項目。'),
         ],
       },
     ],

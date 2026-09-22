@@ -53,5 +53,5 @@ export type AppSnapshot = {
 };
 
 export const SNAPSHOT_VERSION = 1 as const;
-export const STORAGE_KEY = 'clearbill.snapshot.v1';
-export const REMOVE_ADS_STUB_KEY = 'clearbill.iap.removeads.stub';
+export const STORAGE_KEY = 'subassist.snapshot.v1';
+export const REMOVE_ADS_STUB_KEY = 'subassist.iap.removeads.stub';

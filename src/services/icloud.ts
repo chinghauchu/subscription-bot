@@ -2,7 +2,7 @@ import { Platform } from 'react-native';
 import Constants from 'expo-constants';
 import { requireOptionalNativeModule } from 'expo-modules-core';
 
-import type { ClearbillIcloudModuleView, ICloudNativeStatus } from '../../modules/clearbill-icloud';
+import type { ICloudNativeStatus, SubassistIcloudModuleView } from '../../modules/subassist-icloud';
 
 export type ICloudReason =
   | 'ok'
@@ -26,7 +26,7 @@ export type ICloudStatus = {
 
 const MESSAGES: Record<ICloudReason, string> = {
   ok: 'iCloud 已連線，訂閱與大掃除會跨裝置同步。',
-  'signed-out': '尚未登入 iCloud。請到「設定」登入 Apple ID 後回到扣款清，資料才會跨裝置同步。目前僅存在本機。',
+  'signed-out': '尚未登入 iCloud。請到「設定」登入 Apple ID 後回到訂閱助手，資料才會跨裝置同步。目前僅存在本機。',
   'container-unavailable':
     '找不到 iCloud 容器。請確認此裝置已登入 iCloud，且使用開發版或 App Store 版本（非 Expo Go）。資料目前僅存在本機。',
   'expo-go': 'Expo Go 無法使用 iCloud 原生同步。請改用開發版或 App Store 版本；現在資料只存在本機。',
@@ -36,9 +36,9 @@ const MESSAGES: Record<ICloudReason, string> = {
   error: '讀取 iCloud 狀態時發生問題。資料仍會先存在本機。',
 };
 
-function getNative(): ClearbillIcloudModuleView | null {
+function getNative(): SubassistIcloudModuleView | null {
   try {
-    return requireOptionalNativeModule<ClearbillIcloudModuleView>('ClearbillIcloud');
+    return requireOptionalNativeModule<SubassistIcloudModuleView>('SubassistIcloud');
   } catch {
     return null;
   }

@@ -46,7 +46,7 @@ export async function getBiometricCapability(): Promise<BiometricCapability> {
 export async function promptUnlock(label = 'Face ID'): Promise<boolean> {
   try {
     const result = await LocalAuthentication.authenticateAsync({
-      promptMessage: `解鎖扣款清（${label}）`,
+      promptMessage: `解鎖訂閱助手（${label}）`,
       cancelLabel: '取消',
       disableDeviceFallback: false,
     });

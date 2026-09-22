@@ -3,13 +3,14 @@ import { SyncStatusBanner } from '@/components/SyncStatusBanner';
 import { useTheme } from '@/hooks/use-theme';
 import { snapshotToJson, subscriptionsToCsv, shareTextFile } from '@/services/export';
 import { getBiometricCapability } from '@/services/biometrics';
+import { PRIVACY_URL, TERMS_URL } from '@/constants/legal';
 import { iapFootnote, purchaseRemoveAds, REMOVE_ADS_PRICE_LABEL, restoreRemoveAds } from '@/services/iap';
 import { useApp } from '@/store/AppProvider';
 import type { ThemePreference } from '@/store/types';
 import Constants from 'expo-constants';
 import { router } from 'expo-router';
 import { useEffect, useState } from 'react';
-import { Alert, Pressable, ScrollView, Switch, View } from 'react-native';
+import { Alert, Linking, Pressable, ScrollView, Switch, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const THEMES: { id: ThemePreference; label: string }[] = [
@@ -64,9 +65,9 @@ export default function MeScreen() {
     }
     try {
       if (kind === 'csv') {
-        await shareTextFile('clearbill-subscriptions.csv', subscriptionsToCsv(snapshot.subscriptions), 'text/csv');
+        await shareTextFile('subassist-subscriptions.csv', subscriptionsToCsv(snapshot.subscriptions), 'text/csv');
       } else {
-        await shareTextFile('clearbill-backup.json', snapshotToJson(snapshot), 'application/json');
+        await shareTextFile('subassist-backup.json', snapshotToJson(snapshot), 'application/json');
       }
     } catch (error) {
       Alert.alert('匯出失敗', error instanceof Error ? error.message : '無法分享檔案');
@@ -153,10 +154,20 @@ export default function MeScreen() {
               <AppText type="body">使用條款</AppText>
             </Pressable>
             <AppText type="caption" color={theme.textSecondary}>
-              扣款清 ClearBill {Constants.expoConfig?.version ?? '1.0.0'} · app.clearbill.tw
+              訂閱助手 sub-assist {Constants.expoConfig?.version ?? '1.0.0'} · app.subassist.tw
             </AppText>
+            <Pressable onPress={() => void Linking.openURL(PRIVACY_URL)}>
+              <AppText type="caption" color={theme.accent}>
+                {PRIVACY_URL}
+              </AppText>
+            </Pressable>
+            <Pressable onPress={() => void Linking.openURL(TERMS_URL)}>
+              <AppText type="caption" color={theme.accent}>
+                {TERMS_URL}
+              </AppText>
+            </Pressable>
             <AppText type="caption" color={theme.textSecondary}>
-              不讀銀行、不讀信箱、不自動取消第三方。與「好呷」無關。
+              不讀銀行、不讀信箱、不自動取消第三方。
             </AppText>
           </Card>
         </ScrollView>

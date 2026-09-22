@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>隱私權政策 · 訂閱助手</title>
+  <meta name="description" content="訂閱助手（sub-assist）隱私權政策。資料留在裝置與 iCloud，不讀銀行、Gmail 或簡訊。" />
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f4f7f6;
+      --fg: #14221f;
+      --muted: #4d635e;
+      --card: #ffffff;
+      --line: #d5e4df;
+      --accent: #0f6e62;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #071615;
+        --fg: #e7f3f0;
+        --muted: #a9c4bd;
+        --card: #102422;
+        --line: #1e3a36;
+        --accent: #7dcec2;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "PingFang TC", "Noto Sans TC", "Helvetica Neue", sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.75;
+    }
+    main { max-width: 42rem; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+    a { color: var(--accent); }
+    header { margin-bottom: 1.5rem; }
+    .crumb { margin: 0 0 0.8rem; font-size: 0.95rem; }
+    h1 { font-size: 1.9rem; line-height: 1.25; margin: 0 0 0.35rem; }
+    h2 { font-size: 1.15rem; margin: 1.8rem 0 0.45rem; }
+    .meta, .en { color: var(--muted); margin: 0; }
+    ul { padding-left: 1.2rem; }
+    li { margin: 0.4rem 0; }
+    footer { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--muted); }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="crumb"><a href="./">訂閱助手</a> · sub-assist</p>
+      <h1>隱私權政策</h1>
+      <p class="meta">最後更新：2026-09-22</p>
+    </header>
+
+    <p>訂閱助手（sub-assist，bundle：<code>app.subassist.tw</code>）是手動記錄訂閱與定期扣款的工具，並提供離職、搬家、換機、賣機等生活清點清單。我們把資料留在你的裝置與你的 iCloud 帳號，不讀銀行、Gmail 或簡訊。</p>
+
+    <h2>一、我們收集什麼</h2>
+    <ul>
+      <li>你在 App 內手動輸入的訂閱名稱、金額、週期、下次扣款日與備註。</li>
+      <li>大掃除清單的勾選進度與你新增的自訂項目。</li>
+      <li>設定：主題、是否去除廣告、是否開啟 Face ID 鎖。</li>
+      <li>若你使用 iCloud 同步：上述資料會寫入你的 iCloud 容器 <code>iCloud.app.subassist.tw</code>（Key-Value 與文件）。Apple 依其 iCloud 條款處理該備份。</li>
+      <li>若顯示廣告：廣告 SDK（例如 AdMob）可能依 Google 政策收集裝置廣告識別碼等資料。未設定廣告金鑰時，App 只顯示本機佔位橫幅，不載入廣告 SDK，也不會因此閃退。</li>
+      <li>購買「去除廣告」（NT$60 一次買斷）時，交易由 Apple 處理，我們不取得你的付款卡號。</li>
+    </ul>
+
+    <h2>二、我們不收集、不讀取</h2>
+    <ul>
+      <li>銀行帳戶、信用卡明細、Gmail、簡訊、其它 App 的內容。</li>
+      <li>不會要求你把第三方帳號授權給訂閱助手，也不會自動取消任何訂閱。</li>
+    </ul>
+
+    <h2>三、資料存在哪裡</h2>
+    <ul>
+      <li>預設寫入本機（AsyncStorage）。</li>
+      <li>在已登入 iCloud 的 iPhone／iPad 開發版或 App Store 版本，會同步到你的 iCloud。Expo Go 與非 iOS 裝置無法使用 iCloud，資料僅本機。</li>
+      <li>你可隨時匯出 CSV／JSON，或刪除 App 以清除本機資料。iCloud 副本需在系統設定中管理。</li>
+    </ul>
+
+    <h2>四、權限</h2>
+    <ul>
+      <li>Face ID／生物辨識：僅用於鎖定本 App，生物特徵不會離開裝置。</li>
+      <li>網路：開啟取消連結、廣告（若已設定）、與 iCloud 同步。</li>
+    </ul>
+
+    <h2>五、聯絡</h2>
+    <p>開發者可透過 GitHub 專案 <a href="https://github.com/chinghauchu/subscription-bot">chinghauchu/subscription-bot</a> 聯繫。</p>
+
+    <footer>
+      <p><a href="./">首頁</a> · <a href="./terms.html">使用條款</a></p>
+    </footer>
+  </main>
+</body>
+</html>

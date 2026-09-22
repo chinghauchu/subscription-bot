@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
-  s.name           = 'ClearbillIcloud'
+  s.name           = 'SubassistIcloud'
   s.version        = '1.0.0'
-  s.summary        = 'iCloud Key-Value Store and Documents for ClearBill'
+  s.summary        = 'iCloud Key-Value Store and Documents for sub-assist'
   s.description    = 'NSUbiquitousKeyValueStore + iCloud Documents snapshot sync'
   s.author         = 'chinghauchu'
   s.homepage       = 'https://github.com/chinghauchu/subscription-bot'

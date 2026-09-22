@@ -61,7 +61,7 @@ export function LockOverlay() {
         backgroundColor: theme.background,
       }}>
       <Screen style={{ alignItems: 'center', justifyContent: 'center', padding: 32, gap: 16 }}>
-        <AppText type="title">扣款清已鎖定</AppText>
+        <AppText type="title">訂閱助手已鎖定</AppText>
         <AppText type="body" color={theme.textSecondary} style={{ textAlign: 'center' }}>
           使用{label}解鎖後才能查看訂閱與支出。生物特徵不會離開這台裝置。
         </AppText>

@@ -2,7 +2,7 @@ import Constants from 'expo-constants';
 import { Platform } from 'react-native';
 
 export const REMOVE_ADS_PRICE_LABEL = 'NT$60';
-export const REMOVE_ADS_PRODUCT_FALLBACK = 'app.clearbill.tw.removeads';
+export const REMOVE_ADS_PRODUCT_FALLBACK = 'subassist_remove_ads';
 
 type Extra = {
   iapRemoveAdsProductId?: string;

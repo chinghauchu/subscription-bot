@@ -66,6 +66,6 @@ export async function shareTextFile(filename: string, contents: string, mimeType
   file.create();
   file.write(contents);
   if (await Sharing.isAvailableAsync()) {
-    await Sharing.shareAsync(file.uri, { mimeType, dialogTitle: '匯出扣款清' });
+    await Sharing.shareAsync(file.uri, { mimeType, dialogTitle: '匯出訂閱助手' });
   }
 }
